@@ -17,9 +17,9 @@ public interface ReportService {
 	public List<Report> getAllReports(Report report);
 	
 	//method to get the export excel data
-	public boolean exportExcel();
+	public List<Report> exportExcel();
 	
 	//method to get the export PDF data
-	public boolean exportPDF();
+	public List<Report> exportPDF();
 	
 }

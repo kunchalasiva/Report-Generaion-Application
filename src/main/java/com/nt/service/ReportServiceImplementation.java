@@ -60,13 +60,13 @@ public class ReportServiceImplementation
 	}
 
 	@Override
-	public boolean exportExcel() {
-		return false;
+	public List<Report> exportExcel() {
+		return repo.findAll();
 	}
 
 	@Override
-	public boolean exportPDF() {
-		return false;
+	public List<Report> exportPDF() {
+		return repo.findAll();
 	}
 
 }

@@ -90,19 +90,34 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${reports}" varStatus="r" var="result">
-					<tr class="text-center">
-						<td>${r.index + 1}</td>
-						<td>${result.planName}</td>
-						<td>${result.planStatus}</td>
-						<td>${result.gender}</td>
-						<td>${result.startDate}</td>
-						<td>${result.endDate}</td>
-					</tr>
-				</c:forEach>
-
+				<c:choose>
+					<c:when test="${not empty reports}">
+						<c:forEach items="${reports}" varStatus="r" var="result">
+							<tr class="text-center" >
+								<td>${r.index + 1}</td>
+								<td>${result.planName}</td>
+								<td>${result.planStatus}</td>
+								<td>${result.gender}</td>
+								<td>${result.startDate}</td>
+								<td>${result.endDate}</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="6">
+								<h1 class="text-danger text-center fw-bold">No Data Found</h1>
+							</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
 			</tbody>
 		</table>
+        <div class="ms-4 mt-3">
+        <span class="fw-bold fs-4 me-3 p-1 mt-3 rounded rounded-2  border border-1 bg-dark text-white">EXPORT :</span>
+        <a href="excel" class="btn ms-3 me-3 btn-outline-success  p-2" style="width: 100px">EXCEl</a>
+        <a href="pdf" class="btn btn-outline-info p-2 text-dark " style="width: 100px">PDF</a>
+        </div>
 	</div>
 </body>
 </html>
